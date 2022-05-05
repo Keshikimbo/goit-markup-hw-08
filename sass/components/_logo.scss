@@ -1,18 +1,17 @@
 .logo {
-    margin-right: 93px;
-    align-self: center;
-  
-    font-family: var(--font-family-secondary);
-    font-weight: 700;
-    font-size: 26px;
-    line-height: 1.2;
-  
-    color: var(--accent-color);
-  }
-.logo__header-color {
-  color: var(--logo-header-color);
-}
+  font-family: $raleway;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.19;
+  color: $accent-color;
 
-.logo__footer-color {
-  color: var(--backgroung-main-color);
+  @include for-size(desktop) {
+    font-size: 26px;
+  }
+}
+.top-color-logo {
+  color: #000000;
+}
+.footer-color-logo {
+  color: $primary-white-color;
 }
