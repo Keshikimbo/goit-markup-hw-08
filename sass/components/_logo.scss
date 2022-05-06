@@ -1,17 +1,36 @@
 .logo {
-  font-family: $raleway;
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 1.19;
-  color: $accent-color;
+  font-family: var(--secondary-font);
+  @include font($fw: 700, $fs: 24px, $lh: 28px);
+  color: var(--accent-color);
+  display: inline-block;
 
-  @include for-size(desktop) {
-    font-size: 26px;
+  @media screen and(min-width: 1200px) {
+    @include font($fw: 700, $fs: 26px, $lh: 31px);
   }
-}
-.top-color-logo {
-  color: #000000;
-}
-.footer-color-logo {
-  color: $primary-white-color;
+
+  &__header {
+    @include paddings(21px, 21px);
+
+    @media screen and(min-width: 768px) {
+      margin-right: 88px;
+      @include paddings(26px, 26px);
+    }
+
+    @media screen and(min-width: 1200px) {
+      margin-right: 93px;
+      @include paddings(24px, 25px);
+    }
+  }
+
+  &__theme_durk {
+    color: var(--main-dark-color);
+  }
+
+  &__footer {
+    margin-bottom: 20px;
+  }
+
+  &__theme_light {
+    color: var(--main-lite-color);
+  }
 }

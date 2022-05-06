@@ -1,0 +1,25 @@
+.contact-list {
+  &__link {
+    @include vertical-centering;
+    @include font;
+    color: var(--transparant-color);
+    transition: color 250ms var(--timing-function);
+
+    @media screen and(min-width: 1200px) {
+      align-items: flex-start;
+    }
+  }
+
+  &__link:hover,
+  &__link:focus {
+    color: var(--accent-color);
+  }
+
+  &__item:not(:last-child) {
+    margin-bottom: 9px;
+  }
+
+  &__link-address {
+    color: var(--main-lite-color);
+  }
+}

@@ -1,0 +1,131 @@
+.mobile-menu {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  position: fixed;
+  overflow-y: scroll;
+  top: 0;
+  left: 50%;
+  width: 100vw;
+  max-width: 767px;
+  height: 100vh;
+  background-color: var(--main-lite-color);
+  @include paddings($pt: 48px, $pb: 48px);
+  padding-left: 40px;
+  padding-right: 83px;
+  transform: translateY(-100%) translateX(-50%);
+  transition: transform 250ms var(--timing-function);
+
+  @media screen and(min-width: 768px) {
+    display: none;
+  }
+
+  &__close-btn {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+  }
+
+  &__close-icon {
+    transition: fill 250ms var(--timing-function);
+
+    .mobile-menu__close-btn:hover &,
+    .mobile-menu__close-btn:focus & {
+      fill: var(--accent-color);
+    }
+  }
+
+  &__container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__nav-item:not(:last-child) {
+    margin-bottom: 32px;
+  }
+
+  &__nav-link {
+    @include font($fw: 500, $fs: 40px, $lh: 47px, $ls: 0.02em);
+    color: var(--second-color);
+    transition: color 250ms var(--timing-function);
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: var(--accent-color);
+    }
+  }
+
+  &__contacts {
+    padding-bottom: 32px;
+  }
+
+  &__contacts-list {
+    margin-bottom: 62px;
+  }
+
+  &__contacts-item:not(:last-child) {
+    margin-bottom: 32px;
+  }
+
+  &__phone-link {
+    @include font($fw: 500, $fs: 22px, $lh: 26px, $ls: 0.01em);
+    color: var(--accent-color);
+  }
+
+  &__mail-link {
+    @include font($fw: 500, $fs: 24px, $lh: 28px, $ls: 0.02em);
+    color: var(--main-color);
+  }
+
+  &__social-list {
+    @include alignment;
+  }
+
+  &__social-item {
+    border-right: 1px solid rgba(33, 33, 33, 0.2);
+    &:last-child {
+      border-right: none;
+    }
+    padding-right: calc(10 * 100vw / 480);
+    margin-right: 10px;
+  }
+
+  &__social-link {
+    @include font($fw: 500, $fs: 12px, $lh: 22px, $ls: 0.02em);
+    color: var(--accent-color);
+  }
+
+  @media screen and(min-width: 480px) {
+    &__phone-link {
+      @include font($fw: 500, $fs: 34px, $lh: 40px, $ls: 0.02em);
+    }
+
+    &__social-link {
+      @include font($fw: 500, $fs: 18px, $lh: 22px, $ls: 0.02em);
+    }
+
+    &__social-item {
+      padding-right: 10px;
+      margin-right: 10px;
+    }
+  }
+
+  &__current {
+    color: var(--accent-color);
+  }
+}
+
+.is-open {
+  opacity: 1;
+  z-index: 10;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0) translateX(-50%);
+}
